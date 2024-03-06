@@ -1,0 +1,43 @@
+.nav {
+    height: auto;
+    border-bottom: 2px solid black;
+    background: white;
+    display: flex;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        width: 400px;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        a {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+            &:last-child {
+                margin-right: 0;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+            img {
+                width: 40px;
+                height: 40px;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    a.active {
+        font-weight: bolder;
+    }
+}

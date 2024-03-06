@@ -1,0 +1,131 @@
+<html lang="NL">
+    <head>
+        <link rel="stylesheet"
+            href="http://localhost:4000/assets/css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/98.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap"
+            rel="stylesheet">
+    </head>
+    <body class="background background--blup">
+        <div class="nav pt-5 pb-5">
+    <div class="container mx-auto nav__container">
+        <a class="nav__logo" href="/">
+            <img src="/assets/images/logo.svg" alt="LOGO">
+        </a>
+        <nav class="nav__links">
+            
+            
+            <a href="/gigs"
+                class="">
+                <img src="/assets/images/planet5.gif"
+                    alt="Meteorite">
+                Contact
+            </a>
+            
+            <a href="/gigs"
+                class="">
+                <img src="/assets/images/planet5.gif"
+                    alt="Meteorite">
+                Foto's
+            </a>
+            
+            <a href="/gigs"
+                class="active">
+                <img src="/assets/images/planet5.gif"
+                    alt="Meteorite">
+                Gigs
+            </a>
+            
+            <a href="/gigs"
+                class="">
+                <img src="/assets/images/planet5.gif"
+                    alt="Meteorite">
+                Onze muziek
+            </a>
+            
+        </nav>
+    </div>
+</div>
+
+        <h1></h1>
+
+<h1>WELKOM OP ONZE BANDPAGINA!</h1>
+
+<div class="marquee">
+    <h1>ONS ALBUM <i>TECHNIQUE FATIGUE</i> is nu te <a
+            href="https://sentry.io/answers/">
+            <button>Beluisteren</button>
+        </a> en aan te
+        schaffen in de betere platenzaak</h1>
+</div>
+
+<script>
+    function Marquee(selector, speed) {
+        const parentSelector = document.querySelector(selector);
+        const clone = parentSelector.innerHTML;
+        const firstElement = parentSelector.children[0];
+        let i = 0;
+        console.log(firstElement);
+        parentSelector.insertAdjacentHTML('beforeend', clone);
+        parentSelector.insertAdjacentHTML('beforeend', clone);
+      
+        setInterval(function () {
+          firstElement.style.marginLeft = `-${i}px`;
+          if (i > firstElement.clientWidth) {
+            i = 0;
+          }
+          i = i + speed;
+        }, 0);
+      }
+      
+      //after window is completed load
+      //1 class selector for marquee
+      //2 marquee speed 0.2
+      window.addEventListener('load', Marquee('.marquee', 0.2))
+      
+</script>
+
+<style>
+    .marquee {
+        overflow: hidden;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        display: flex;
+        background-color: white;
+      }
+      
+      .marquee h1{
+        font-size: 2em;
+        white-space: nowrap;
+        text-transform: uppercase
+      }
+</style>
+
+        <div class="footer">
+    <div class="footer__top-image">
+        
+    </div>
+    <div class="container mx-auto max-w-5xl grid grid-cols-3 gap-4">
+        <div>
+            <a href="mailto:eaumontjardin@gmail.com">eaumontjardin@gmail.com</a>
+        </div>
+        <div>
+            <a
+                href="https://www.instagram.com/eau.mont.jardin/">instagram.com/eau.mont.jardin
+            </a>
+        </div>
+        <div>
+            <a target="_blank"
+                href="https://winkel.eaumontjardin.fr/wordpress/">winkel.eaumontjardin.fr/wordpress/</a>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

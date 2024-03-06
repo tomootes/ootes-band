@@ -1,0 +1,19 @@
+{
+  "name": "ootes-band",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "jekyll": "bundle exec jekyll serve --livereload"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomootes/ootes-band.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomootes/ootes-band/issues"
+  },
+  "homepage": "https://github.com/tomootes/ootes-band#readme"
+}

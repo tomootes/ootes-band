@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<h1>{{ title }}</h1>
+
+<h1>WELKOM OP ONZE BANDPAGINA!</h1>
+
+<div class="marquee">
+    <h1>ONS ALBUM <i>TECHNIQUE FATIGUE</i> is nu te <a
+            href="https://sentry.io/answers/">
+            <button>Beluisteren</button>
+        </a> en aan te
+        schaffen in de betere platenzaak</h1>
+</div>
+
+<script>
+    function Marquee(selector, speed) {
+        const parentSelector = document.querySelector(selector);
+        const clone = parentSelector.innerHTML;
+        const firstElement = parentSelector.children[0];
+        let i = 0;
+        console.log(firstElement);
+        parentSelector.insertAdjacentHTML('beforeend', clone);
+        parentSelector.insertAdjacentHTML('beforeend', clone);
+      
+        setInterval(function () {
+          firstElement.style.marginLeft = `-${i}px`;
+          if (i > firstElement.clientWidth) {
+            i = 0;
+          }
+          i = i + speed;
+        }, 0);
+      }
+      
+      //after window is completed load
+      //1 class selector for marquee
+      //2 marquee speed 0.2
+      window.addEventListener('load', Marquee('.marquee', 0.2))
+      
+</script>
+
+<style>
+    .marquee {
+        overflow: hidden;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+        display: flex;
+        background-color: white;
+      }
+      
+      .marquee h1{
+        font-size: 2em;
+        white-space: nowrap;
+        text-transform: uppercase
+      }
+</style>
