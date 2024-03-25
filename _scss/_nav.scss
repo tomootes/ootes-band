@@ -1,39 +1,30 @@
 .nav {
-    height: auto;
-    border-bottom: 2px solid black;
     background: white;
-    display: flex;
-    align-items: center;
+    display: inline-block;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    position: sticky;
+    overflow: hidden;
 
-    &__container {
-        display: flex;
-        justify-content: space-between;
+    .tree-view {
+        padding: 25px;
     }
 
-    &__logo {
-        width: 400px;
-    }
-
-    &__links {
+    a {
         display: flex;
-        flex-direction: row;
         align-items: center;
-
-        a {
-            display: flex;
-            align-items: center;
-            margin-right: 1rem;
-            &:last-child {
-                margin-right: 0;
-            }
-            &:hover {
-                text-decoration: underline;
-            }
-            img {
-                width: 40px;
-                height: 40px;
-                margin-right: 5px;
-            }
+        margin-right: 1rem;
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+        img {
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
         }
     }
 

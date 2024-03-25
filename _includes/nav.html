@@ -1,18 +1,21 @@
-<div class="nav pt-5 pb-5">
-    <div class="container mx-auto nav__container">
-        <a class="nav__logo" href="{{site.baseurl}}/">
-            <img src="{{ site.baseurl }}/assets/images/logo.svg" alt="LOGO">
-        </a>
-        <nav class="nav__links">
-            {% assign pages = site.pages | where_exp: 'page', 'page.title' %}
-            {% for page in pages %}
-            <a href="/gigs"
-                class="{% if page.url contains 'gigs' %}active{% endif %}">
+ <nav class="nav">
+    <ul class="tree-view p-5">
+        <li class="text-lg">
+            <a href="/">
+                <img src="{{ site.baseurl }}/assets/images/planet5.gif"
+                    alt="Meteorite">
+                Home
+            </a>
+        </li>
+        {% assign pages = site.pages | where_exp: 'page', 'page.title' %}
+        {% for page in pages %}
+        <li class="text-lg">
+            <a href="{{page.url}}">
                 <img src="{{ site.baseurl }}/assets/images/planet5.gif"
                     alt="Meteorite">
                 {{ page.title }}
             </a>
-            {% endfor %}
-        </nav>
-    </div>
-</div>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

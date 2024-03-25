@@ -1,16 +1,28 @@
 ---
 layout: default
 ---
-<h1>{{ title }}</h1>
 
-<h1>WELKOM OP ONZE BANDPAGINA!</h1>
+<div class="container mx-auto mt-10 max-w-2xl text-lg bg-slate-50">
 
-<div class="marquee">
-    <h1>ONS ALBUM <i>TECHNIQUE FATIGUE</i> is nu te <a
-            href="https://sentry.io/answers/">
-            <button>Beluisteren</button>
-        </a> en aan te
-        schaffen in de betere platenzaak</h1>
+  <ul class="p-5">
+    <h1 class="text-7xl">OOTES BAND</h1>
+    <li><i>🌱 Utopische Indie Pop Band</i></li>
+    <li>📍 Utrecht</li>
+  </ul>
+
+  <p class="mb-1 p-5">Ootes wil naar de toekomst kijken om te zien wat er nog te halen valt. We zingen over
+    kraakpanden met walnotenbomen er naast. Bottom-up met een vleugje utopie. Want we gaan
+    allemaal naar de kloten als de grondstoffen op zijn. Maar als we toch gaan; dan liever dansend.</p>
+
+</div>
+
+<div class="container mx-auto mt-2 max-w-2xl text-lg bg-slate-50">
+  <ul class="p-5">
+    <h1 class="text-7xl">LEDEN</h1>
+    <li>🌱 <b>Tom Ootes</b> ~ Zang/gitaar/teksten</li>
+    <li>🌱 <b>Huib Pruymboom</b> ~ Drums</li>
+    <li>🌱 <b>Anna de Wolff</b> ~ Bas</li>
+  </ul>
 </div>
 
 <script>
@@ -41,6 +53,7 @@ layout: default
 
 <style>
     .marquee {
+      position: relative;
         overflow: hidden;
         border-top: 1px solid #000;
         border-bottom: 1px solid #000;
@@ -48,7 +61,7 @@ layout: default
         background-color: white;
       }
       
-      .marquee h1{
+      .marquee span{
         font-size: 2em;
         white-space: nowrap;
         text-transform: uppercase

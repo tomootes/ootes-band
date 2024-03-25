@@ -1,4 +1,7 @@
 @import "nav";
+@import "global";
+@import "typography";
+@import "footer";
 
 body {
     background-color: aqua;
@@ -6,8 +9,8 @@ body {
 }
 
 .background {
-    background-image: url(/assets/images/content/1/bg.png);
+    background-image: url(/assets/images/circuit.png);
     &--blup {
-        background-image: url(/assets/images/content/1/bg-blup.png);
+        background-image: url(/assets/images/circuit.png);
     }
 }
