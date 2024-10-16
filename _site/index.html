@@ -1,92 +1,148 @@
 <html lang="NL">
-    <head>
-        <link rel="stylesheet"
-            href="http://localhost:4000/assets/css/styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/98.css">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap"
-            rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap" rel="stylesheet">
-    </head>
-    <body class="background background--blup">
-        <div class="marquee pb-2 pt-2">
-            <span class="text-base">*** ONS ALBUM <a target="_blank"
-                    href="https://open.spotify.com/album/4DvMPy5vmHEWn1CZh4wY2r"><i>TECHNIQUE
-                        FATIGUE</i></a> is nu
-                te beluisteren en
-                aan te
-                schaffen in de betere platenzaak ***</span>
-        </div>
-        <div class="flex w-full justify-center align-center mt-20">
-            <a class="logo" href="/">
-                <img src="/assets/images/logo.svg" alt="LOGO">
-            </a>
-        </div>
-         <nav class="nav">
-    <ul class="tree-view p-5">
-        <li class="text-lg">
-            <a href="/">
-                <img src="/assets/images/planet5.gif"
-                    alt="Meteorite">
-                Home
-            </a>
-        </li>
-        
-        
-        <li class="text-lg">
-            <a href="/contact.html">
-                <img src="/assets/images/planet5.gif"
-                    alt="Meteorite">
-                Contact
-            </a>
-        </li>
-        
-        <li class="text-lg">
-            <a href="/fotos.html">
-                <img src="/assets/images/planet5.gif"
-                    alt="Meteorite">
-                Foto's
-            </a>
-        </li>
-        
-        <li class="text-lg">
-            <a href="/gigs.html">
-                <img src="/assets/images/planet5.gif"
-                    alt="Meteorite">
-                Gigs
-            </a>
-        </li>
-        
-        <li class="text-lg">
-            <a href="/onze-muziek.html">
-                <img src="/assets/images/planet5.gif"
-                    alt="Meteorite">
-                Onze muziek
-            </a>
-        </li>
-        
-    </ul>
+  <head>
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-green-100">
+    <div class="flex w-full justify-center align-center mt-20">
+      <a class="logo" href="/">
+        <img src="/assets/images/logo.svg" alt="LOGO" />
+      </a>
+    </div>
+    <nav class="nav">
+  <ul class="tree-view p-5 bg-green-50 absolute top-100">
+    <li class="text-lg">
+      <a href="/">
+        <img
+          src="/assets/images/planet5.gif"
+          alt="Meteorite"
+        />
+        Home
+      </a>
+    </li>
+     
+    <li class="text-lg">
+      <a href="/contact.html">
+        <img
+          src="/assets/images/planet5.gif"
+          alt="Meteorite"
+        />
+        Contact
+      </a>
+    </li>
+    
+    <li class="text-lg">
+      <a href="/fotos.html">
+        <img
+          src="/assets/images/planet5.gif"
+          alt="Meteorite"
+        />
+        Foto's
+      </a>
+    </li>
+    
+    <li class="text-lg">
+      <a href="/gigs.html">
+        <img
+          src="/assets/images/planet5.gif"
+          alt="Meteorite"
+        />
+        Gigs
+      </a>
+    </li>
+    
+    <li class="text-lg">
+      <a href="/onze-muziek.html">
+        <img
+          src="/assets/images/planet5.gif"
+          alt="Meteorite"
+        />
+        Onze muziek
+      </a>
+    </li>
+    
+  </ul>
 </nav>
+ <div class="marquee pb-2 pt-2 absolute top-0 max-w-full">
+  <span class="text-base"
+    >*** ONS ALBUM
+    <a
+      target="_blank"
+      href="https://open.spotify.com/album/4DvMPy5vmHEWn1CZh4wY2r"
+      ><i>TECHNIQUE FATIGUE</i></a
+    >
+    is nu te beluisteren en aan te schaffen in de betere platenzaak ***</span
+  >
+</div>
 
-        <div class="container mx-auto mt-10 max-w-2xl text-lg bg-slate-50">
+<script>
+  function Marquee(selector, speed) {
+    const parentSelector = document.querySelector(selector);
+    const clone = parentSelector.innerHTML;
+    const firstElement = parentSelector.children[0];
+    let i = 0;
+    console.log(firstElement);
+    parentSelector.insertAdjacentHTML("beforeend", clone);
+    parentSelector.insertAdjacentHTML("beforeend", clone);
 
+    setInterval(function () {
+      firstElement.style.marginLeft = `-${i}px`;
+      if (i > firstElement.clientWidth) {
+        i = 0;
+      }
+      i = i + speed;
+    }, 0);
+  }
+
+  //after window is completed load
+  //1 class selector for marquee
+  //2 marquee speed 0.2
+  window.addEventListener("load", Marquee(".marquee", 0.2));
+</script>
+
+<style>
+  .marquee {
+    /* position: relative; */
+    overflow: hidden;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    display: flex;
+    background-color: white;
+  }
+
+  .marquee span {
+    font-size: 2em;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+</style>
+
+
+<div class="container mx-auto mt-10 max-w-2xl text-lg bg-slate-50">
   <ul class="p-5">
     <h1 class="text-7xl">OOTES BAND</h1>
     <li><i>🌱 Utopische Indie Pop Band</i></li>
     <li>📍 Utrecht</li>
   </ul>
 
-  <p class="mb-1 p-5">Ootes wil naar de toekomst kijken om te zien wat er nog te halen valt. We zingen over
-    kraakpanden met walnotenbomen er naast. Bottom-up met een vleugje utopie. Want we gaan
-    allemaal naar de kloten als de grondstoffen op zijn. Maar als we toch gaan; dan liever dansend.</p>
-
+  <p class="mb-1 p-5">
+    Ootes wil naar de toekomst kijken om te zien wat er nog te halen valt. We
+    zingen over kraakpanden met walnotenbomen er naast. Bottom-up met een
+    vleugje utopie. Want we gaan allemaal naar de kloten als de grondstoffen op
+    zijn. Maar als we toch gaan; dan liever dansend.
+  </p>
 </div>
 
 <div class="container mx-auto mt-2 max-w-2xl text-lg bg-slate-50">
@@ -94,54 +150,9 @@
     <h1 class="text-7xl">LEDEN</h1>
     <li>🌱 <b>Tom Ootes</b> ~ Zang/gitaar/teksten</li>
     <li>🌱 <b>Huib Pruymboom</b> ~ Drums</li>
-    <li>🌱 <b>Anna de Wolff</b> ~ Bas</li>
   </ul>
 </div>
-
-<script>
-    function Marquee(selector, speed) {
-        const parentSelector = document.querySelector(selector);
-        const clone = parentSelector.innerHTML;
-        const firstElement = parentSelector.children[0];
-        let i = 0;
-        console.log(firstElement);
-        parentSelector.insertAdjacentHTML('beforeend', clone);
-        parentSelector.insertAdjacentHTML('beforeend', clone);
-      
-        setInterval(function () {
-          firstElement.style.marginLeft = `-${i}px`;
-          if (i > firstElement.clientWidth) {
-            i = 0;
-          }
-          i = i + speed;
-        }, 0);
-      }
-      
-      //after window is completed load
-      //1 class selector for marquee
-      //2 marquee speed 0.2
-      window.addEventListener('load', Marquee('.marquee', 0.2))
-      
-</script>
-
-<style>
-    .marquee {
-      position: relative;
-        overflow: hidden;
-        border-top: 1px solid #000;
-        border-bottom: 1px solid #000;
-        display: flex;
-        background-color: white;
-      }
-      
-      .marquee span{
-        font-size: 2em;
-        white-space: nowrap;
-        text-transform: uppercase
-      }
-</style>
-
-        <div class="container mx-auto mt-15 max-w-2xl text-lg bg-slate-50 footer mt-20 p-5 flex align-center">
+ <div class="container mx-auto mt-15 max-w-2xl text-lg bg-slate-50 footer mt-20 p-5 flex align-center">
 
     <a href="https://www.instagram.com/ootes.band/" target="_blank">
         Volg ons
@@ -206,6 +217,5 @@
     </a>
 </div>
 
-        <h1>NIKS</h1>
-    </body>
+  </body>
 </html>

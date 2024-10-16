@@ -2,18 +2,21 @@
 layout: default
 ---
 
-<div class="container mx-auto mt-10 max-w-2xl text-lg bg-slate-50">
+{% include marquee.html %}
 
+<div class="container mx-auto mt-10 max-w-2xl text-lg bg-slate-50">
   <ul class="p-5">
     <h1 class="text-7xl">OOTES BAND</h1>
     <li><i>🌱 Utopische Indie Pop Band</i></li>
     <li>📍 Utrecht</li>
   </ul>
 
-  <p class="mb-1 p-5">Ootes wil naar de toekomst kijken om te zien wat er nog te halen valt. We zingen over
-    kraakpanden met walnotenbomen er naast. Bottom-up met een vleugje utopie. Want we gaan
-    allemaal naar de kloten als de grondstoffen op zijn. Maar als we toch gaan; dan liever dansend.</p>
-
+  <p class="mb-1 p-5">
+    Ootes wil naar de toekomst kijken om te zien wat er nog te halen valt. We
+    zingen over kraakpanden met walnotenbomen er naast. Bottom-up met een
+    vleugje utopie. Want we gaan allemaal naar de kloten als de grondstoffen op
+    zijn. Maar als we toch gaan; dan liever dansend.
+  </p>
 </div>
 
 <div class="container mx-auto mt-2 max-w-2xl text-lg bg-slate-50">
@@ -21,49 +24,5 @@ layout: default
     <h1 class="text-7xl">LEDEN</h1>
     <li>🌱 <b>Tom Ootes</b> ~ Zang/gitaar/teksten</li>
     <li>🌱 <b>Huib Pruymboom</b> ~ Drums</li>
-    <li>🌱 <b>Anna de Wolff</b> ~ Bas</li>
   </ul>
 </div>
-
-<script>
-    function Marquee(selector, speed) {
-        const parentSelector = document.querySelector(selector);
-        const clone = parentSelector.innerHTML;
-        const firstElement = parentSelector.children[0];
-        let i = 0;
-        console.log(firstElement);
-        parentSelector.insertAdjacentHTML('beforeend', clone);
-        parentSelector.insertAdjacentHTML('beforeend', clone);
-      
-        setInterval(function () {
-          firstElement.style.marginLeft = `-${i}px`;
-          if (i > firstElement.clientWidth) {
-            i = 0;
-          }
-          i = i + speed;
-        }, 0);
-      }
-      
-      //after window is completed load
-      //1 class selector for marquee
-      //2 marquee speed 0.2
-      window.addEventListener('load', Marquee('.marquee', 0.2))
-      
-</script>
-
-<style>
-    .marquee {
-      position: relative;
-        overflow: hidden;
-        border-top: 1px solid #000;
-        border-bottom: 1px solid #000;
-        display: flex;
-        background-color: white;
-      }
-      
-      .marquee span{
-        font-size: 2em;
-        white-space: nowrap;
-        text-transform: uppercase
-      }
-</style>

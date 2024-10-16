@@ -1,0 +1,53 @@
+<div class="marquee pb-2 pt-2 absolute top-0 max-w-full">
+  <span class="text-base"
+    >*** ONS ALBUM
+    <a
+      target="_blank"
+      href="https://open.spotify.com/album/4DvMPy5vmHEWn1CZh4wY2r"
+      ><i>TECHNIQUE FATIGUE</i></a
+    >
+    is nu te beluisteren en aan te schaffen in de betere platenzaak ***</span
+  >
+</div>
+
+<script>
+  function Marquee(selector, speed) {
+    const parentSelector = document.querySelector(selector);
+    const clone = parentSelector.innerHTML;
+    const firstElement = parentSelector.children[0];
+    let i = 0;
+    console.log(firstElement);
+    parentSelector.insertAdjacentHTML("beforeend", clone);
+    parentSelector.insertAdjacentHTML("beforeend", clone);
+
+    setInterval(function () {
+      firstElement.style.marginLeft = `-${i}px`;
+      if (i > firstElement.clientWidth) {
+        i = 0;
+      }
+      i = i + speed;
+    }, 0);
+  }
+
+  //after window is completed load
+  //1 class selector for marquee
+  //2 marquee speed 0.2
+  window.addEventListener("load", Marquee(".marquee", 0.2));
+</script>
+
+<style>
+  .marquee {
+    /* position: relative; */
+    overflow: hidden;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    display: flex;
+    background-color: white;
+  }
+
+  .marquee span {
+    font-size: 2em;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+</style>

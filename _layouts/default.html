@@ -1,39 +1,29 @@
 ---
 ---
+
 <html lang="NL">
-    <head>
-        <link rel="stylesheet"
-            href="{{'/assets/css/styles.css' | absolute_url}}">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link
-            rel="stylesheet"
-            href="https://unpkg.com/98.css">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap"
-            rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap" rel="stylesheet">
-    </head>
-    <body class="background background--blup">
-        <div class="marquee pb-2 pt-2">
-            <span class="text-base">*** ONS ALBUM <a target="_blank"
-                    href="https://open.spotify.com/album/4DvMPy5vmHEWn1CZh4wY2r"><i>TECHNIQUE
-                        FATIGUE</i></a> is nu
-                te beluisteren en
-                aan te
-                schaffen in de betere platenzaak ***</span>
-        </div>
-        <div class="flex w-full justify-center align-center mt-20">
-            <a class="logo" href="{{site.baseurl}}/">
-                <img src="{{ site.baseurl }}/assets/images/logo.svg" alt="LOGO">
-            </a>
-        </div>
-        {% include nav.html %}
-        {{ content }}
-        {% include footer.html %}
-        <h1>NIKS</h1>
-    </body>
+  <head>
+    <link rel="stylesheet" href="{{'/assets/css/styles.css' | absolute_url}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-green-100">
+    <div class="flex w-full justify-center align-center mt-20">
+      <a class="logo" href="{{site.baseurl}}/">
+        <img src="{{ site.baseurl }}/assets/images/logo.svg" alt="LOGO" />
+      </a>
+    </div>
+    {% include nav.html %} {{ content }} {% include footer.html %}
+  </body>
 </html>
