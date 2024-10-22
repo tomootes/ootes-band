@@ -1,8 +1,7 @@
 ---
-title: "First Gig"
-date: 2023-10-01
-location: "New York"
-details: "Details about the first gig."
+title: "Album Release ~ Technique Fatigue"
+date: 2023-11-29
+location: "Nomono, Utrecht"
 ---
 
 Content of the first gig.

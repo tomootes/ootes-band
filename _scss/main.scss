@@ -1,15 +1,8 @@
-@import "nav";
+// @import "nav";
 @import "global";
 @import "typography";
 @import "footer";
 
 body {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-
-.background {
-    background-image: url(/assets/images/circuit.png);
-    &--blup {
-        background-image: url(/assets/images/circuit.png);
-    }
 }

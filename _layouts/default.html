@@ -4,24 +4,16 @@
 <html lang="NL">
   <head>
     <link rel="stylesheet" href="{{'/assets/css/styles.css' | absolute_url}}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Preahvihear&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap"
-      rel="stylesheet"
-    />
+    <link data-n-head="ssr" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono&amp;display=swap">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script async src="https://embed.email-provider.eu/e/pgqmd2p6jc-2ul2odisp2.js"></script>
+    <title>{{ page.title }} | Ootes Band </title>
   </head>
   <body class="bg-green-100">
-    <div class="flex w-full justify-center align-center mt-20">
-      <a class="logo" href="{{site.baseurl}}/">
-        <img src="{{ site.baseurl }}/assets/images/logo.svg" alt="LOGO" />
+    <div class="container mx-auto max-w-2xl mt-20 px-5">
+      <a class="logo w-full" href="{{site.baseurl}}/">
+        <img class="w-full" src="{{ site.baseurl }}/assets/images/logo.svg" alt="LOGO" />
       </a>
     </div>
     {% include nav.html %} {{ content }} {% include footer.html %}
