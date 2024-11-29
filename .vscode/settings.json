@@ -1,6 +1,9 @@
 {
-    "emmet.includeLanguages":{
-        "jekyll": "html",
-        "scss": "css"
-      }
+  "emmet.includeLanguages": {
+    "jekyll": "html",
+    "scss": "css"
+  },
+  "files.associations": {
+    "*.html": "liquid",
+  }
 }

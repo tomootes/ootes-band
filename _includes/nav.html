@@ -1,15 +1,10 @@
-<nav class="container mx-auto mt-10 max-w-4xl text-lg">
-  <ul class="flex flex-row justify-around px-5 py-2 bg-green-50">
-    <!-- <li class="text-lg">
-      <a href="/" class="flex items-center">  
-        Home
-      </a>
-    </li> -->
+<nav class="container mx-auto max-w-4xl text-lg sticky top-0 px-2 md:px-0 mb- md:mb-8">
+  <ul class="flex flex-row justify-around px-5 py-2 bg-green-400 text-white rounded-lg">
     {% assign pages = site.pages | where_exp: 'page', 'page.title' %}
     {% assign pages_sorted = pages | sort: 'date' | reverse %}
     {% for page in pages_sorted %}
-    <li class="text-lg">
-      <a href="{{page.url}}" class="flex items-center">
+    <li class="text-base">
+      <a href="{{page.url}}" class="flex items-center text-green-900 font-bold">
         {{ page.title }}
       </a>
     </li>

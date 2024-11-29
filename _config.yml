@@ -32,6 +32,8 @@ domain: ootes.
 collections:
   gigs:
     output: true
+  photo_series:
+    output: true
 
 sass:
   sass_dir: _scss

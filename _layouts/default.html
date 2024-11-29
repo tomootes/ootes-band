@@ -11,11 +11,16 @@
     <title>{{ page.title }} | Ootes Band </title>
   </head>
   <body class="bg-green-100">
-    <div class="container mx-auto max-w-2xl mt-20 px-5">
-      <a class="logo w-full" href="{{site.baseurl}}/">
-        <img class="w-full" src="{{ site.baseurl }}/assets/images/logo.svg" alt="LOGO" />
-      </a>
+    <div class="overlay w-100 h-100 bg-green-600 absolute ">
+      <div class="container mx-auto  max-w-14xl">
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+      </div>
     </div>
-    {% include nav.html %} {{ content }} {% include footer.html %}
+    {% include logo.html %}
+    {% include nav.html %}
+    {{ content }}
+    {% include footer.html %}
   </body>
 </html>

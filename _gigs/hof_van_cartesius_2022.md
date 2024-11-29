@@ -1,7 +1,7 @@
 ---
-title: "Album Release ~ Technique Fatigue"
-date: 2023-11-29
+date: 2022-12-07
 location: "Nomono, Utrecht"
+
 ---
 
 Content of the first gig.

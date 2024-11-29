@@ -7,7 +7,7 @@ title: Gigs
   <h1 class="text-4xl mb-5 font-bold">GIGS</h1>
   <div>
     <table class="w-full">
-      <thead>
+      <thead class="border-b-4 border-green-800 bg-white">
         <tr class="pb-5">
           <th class="text-left p-2 md:p-1">Datum</th>
           <th class="text-left">Locatie</th>
@@ -18,9 +18,9 @@ title: Gigs
         {% assign sorted_gigs = site.gigs | sort: 'date' | reverse %}
         {% for gig in sorted_gigs %} 
         <tr class="{% cycle 'odd', 'bg-white' %}">
-          <td class="p-2 md:p-1">{{ gig.date | date_to_string }}</td>
-          <td>{{ gig.location }}</td>
-          <td><a href="{{ gig.ticket_link }}" class="font-bold">TICKETS</a></td>
+          <td class="p-2 md:p-1"><span class="line-through">{{ gig.date | date_to_string }}</span></td>
+          <td><span class="line-through">{{ gig.location }}</span></td>
+          <td><a class="line-through" href="{{ gig.ticket_link }}" class="font-bold">TICKETS</a></td>
         </tr>
         {% endfor %}
       </tbody>
