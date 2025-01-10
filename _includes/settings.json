@@ -1,6 +1,0 @@
-{
-    "emmet.includeLanguages":{
-        "jekyll": "html",
-        "scss": "css"
-    }
-}

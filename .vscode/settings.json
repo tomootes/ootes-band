@@ -1,9 +1,16 @@
 {
+  "html.format.wrapAttributes": "force-aligned",
   "emmet.includeLanguages": {
     "jekyll": "html",
     "scss": "css"
   },
   "files.associations": {
-    "*.html": "liquid",
-  }
+    "*.html": "liquid"
+  },
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.singleAttributePerLine": true,
+  "[liquid]": {
+    "editor.defaultFormatter": "sissel.shopify-liquid",
+    "editor.formatOnSave": true
+  },
 }
