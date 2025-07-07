@@ -3,7 +3,8 @@ layout: default
 title: Foto's
 ---
 
-<div class="container mx-auto  max-w-14xl">
+
+<div class="container mx-auto  max-w-6xl">
 {% assign sorted_photo_series = site.photo_series | sort: 'date' | reverse %}
 
 {% for photo_serie in sorted_photo_series %} 
