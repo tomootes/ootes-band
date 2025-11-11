@@ -10,6 +10,7 @@ title: Gigs
       <thead class="border-b-4 border-green-800 bg-white">
         <tr class="pb-5">
           <th class="text-left p-2 md:p-1">Datum</th>
+          <th class="text-left">Titel</th>
           <th class="text-left">Locatie</th>
           <th class="text-left">Tickets</th>
         </tr>
@@ -17,18 +18,22 @@ title: Gigs
       <tbody>
         {% assign sorted_gigs = site.gigs | sort: 'date' | reverse %}
         {% for gig in sorted_gigs %}
+          {% assign gig_date = gig.date | date: '%s' %}
+          {% assign current_date = 'now' | date: '%s' %}
           <tr class="{% cycle 'odd', 'bg-white' %}">
             <td class="p-2 md:p-1">
-              <span class="line-through">{{ gig.date | date_to_string }}</span>
+              <span class="{% if gig_date < current_date %}line-through{% endif %}">{{ gig.date | date_to_string }}</span>
             </td>
             <td>
-              <span class="line-through">{{ gig.location }}</span>
+              <span class="{% if gig_date < current_date %}line-through{% endif %}">{{ gig.title }}</span>
+            </td>
+            <td>
+              <span class="{% if gig_date < current_date %}line-through{% endif %}">{{ gig.location }}</span>
             </td>
             <td>
               <a
-                class="line-through"
-                href="{{ gig.ticket_link }}"
-                class="font-bold">TICKETS</a>
+                class="{% if gig_date < current_date %}line-through{% endif %} font-bold"
+                href="{{ gig.ticket_link }}">TICKETS</a>
             </td>
           </tr>
         {% endfor %}
