@@ -36,6 +36,8 @@ collections:
     output: true
   videos:
     output: true
+  songs:
+    output: true
 
 sass:
   sass_dir: _scss
