@@ -54,7 +54,7 @@
     font-size: 1rem;
     font-family: inherit;
     background: #ffffff;
-    border: 2px solid var(--green-border-light);
+    border: 2px solid var(--green-primary);
     border-radius: 8px;
     transition: all 0.3s ease;
     color: var(--green-text-dark);
@@ -68,22 +68,6 @@
 
     &::placeholder {
       color: var(--green-muted);
-    }
-
-    // Required field modifier
-    &--required {
-      border-left: 4px solid var(--accent-orange);
-    }
-
-    // Invalid state
-    &:invalid:not(:placeholder-shown) {
-      border-color: var(--accent-error);
-      background: var(--bg-error);
-    }
-
-    &:valid:not(:placeholder-shown) {
-      border-color: var(--green-primary);
-      background: var(--bg-valid);
     }
   }
 
