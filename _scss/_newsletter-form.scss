@@ -1,0 +1,140 @@
+// Newsletter Form - Solarpunk Aesthetic
+// BEM Methodology
+
+.newsletter-form {
+  background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-mint) 100%);
+  border: 2px solid var(--green-primary);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 170, 88, 0.15);
+  position: relative;
+  overflow: hidden;
+
+  // Decorative element - subtle sun rays
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 220, 100, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  // Field wrapper
+  &__field {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  // Label styling
+  &__label {
+    display: block;
+    // font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--green-text);
+    margin-bottom: 0.5rem;
+    // text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    // Add a small leaf icon effect
+    &::before {
+      content: '🌱 ';
+      font-size: 0.85em;
+    }
+  }
+
+  // Input styling
+  &__input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #ffffff;
+    border: 2px solid var(--green-border-light);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: var(--green-text-dark);
+
+    &:focus {
+      outline: none;
+      border-color: var(--green-primary);
+      box-shadow: 0 0 0 3px rgba(0, 170, 88, 0.1);
+      background: var(--bg-fresh);
+    }
+
+    &::placeholder {
+      color: var(--green-muted);
+    }
+
+    // Required field modifier
+    &--required {
+      border-left: 4px solid var(--accent-orange);
+    }
+
+    // Invalid state
+    &:invalid:not(:placeholder-shown) {
+      border-color: var(--accent-error);
+      background: var(--bg-error);
+    }
+
+    &:valid:not(:placeholder-shown) {
+      border-color: var(--green-primary);
+      background: var(--bg-valid);
+    }
+  }
+
+  // Submit button
+  &__submit {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--green-primary) 0%, var(--green-dark) 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 170, 88, 0.3);
+    margin-top: 0.5rem;
+
+    &:hover {
+      background: linear-gradient(135deg, var(--green-light) 0%, var(--green-hover) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 170, 88, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 8px rgba(0, 170, 88, 0.3);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 170, 88, 0.3);
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 600px) {
+  .newsletter-form {
+    padding: 1.5rem;
+    border-radius: 8px;
+
+    &__field {
+      margin-bottom: 1.25rem;
+    }
+
+    &__input,
+    &__submit {
+      font-size: 1rem;
+    }
+  }
+}

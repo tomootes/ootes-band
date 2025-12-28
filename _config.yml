@@ -41,3 +41,6 @@ collections:
 
 sass:
   sass_dir: _scss
+
+exclude:
+  - DEFINITION_OF_DONE.md

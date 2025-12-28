@@ -1,0 +1,31 @@
+:root {
+  --primary-color: pink;
+
+  // Brand greens (derived from logo #00AA58)
+  --green-brand: #00AA58;
+  --green-primary: #00AA58;
+  --green-dark: #008844;
+  --green-darker: #006633;
+  --green-light: #33BB77;
+  --green-lighter: #66CC99;
+  --green-hover: #00CC66;
+
+  // Text colors (darker, desaturated)
+  --green-text: #2d5540;
+  --green-text-dark: #1a3326;
+
+  // Border and muted colors
+  --green-border-light: #99ddbb;
+  --green-muted: #7db896;
+
+  // Backgrounds (very light, pastel)
+  --bg-cream: #f5faf7;
+  --bg-mint: #e6f7ef;
+  --bg-fresh: #f0fbf5;
+  --bg-valid: #edfff5;
+  --bg-error: #fff5f0;
+
+  // Accents
+  --accent-orange: #f4a742;
+  --accent-error: #e67e5c;
+}

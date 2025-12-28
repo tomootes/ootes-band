@@ -71,7 +71,8 @@ Ze houdt van jou, omdat je wint, maar jong bezint, eer ge begint
               Dm         G7*
 Hoe weet ik zeker, dat ik leef?
 
-
+ 
+[Chorus]
           C  G    F
 Maar mijn hoofd is niet te koop vriend
       C     G        F      G
@@ -80,6 +81,7 @@ Ik zet zelf, een platform op
 Ik ga ook niet met je mee in je raket
               C  G            F
 Elke miljairdaiir minder is er weer 1 
+ 
  
    C     G    F
 Maar mijn idee, is niet te koop vriend
