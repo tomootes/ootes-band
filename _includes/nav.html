@@ -3,6 +3,7 @@
   justify-between
   items-center md:px-2 p-2 py-2 bg-green-400 text-white rounded-lg">
     {% assign pages = site.pages | where_exp: 'page', 'page.title' %}
+    {% assign pages = pages | where_exp: 'page', 'page.exclude_from_nav != true' %}
     {% assign pages_sorted = pages | sort: 'order' | reverse %}
     {% for page in pages_sorted %}
       {% if page.url == "/bandleden-gezocht.html" %}
