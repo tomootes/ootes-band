@@ -1,0 +1,336 @@
+{% assign player_id = include.src | slugify %}
+
+<div class="bc-player" id="player-{{ player_id }}">
+  <div class="bc-player__pcb-dots"></div>
+  <div class="bc-player__top">
+    <button class="bc-player__play" aria-label="Play/Pause">
+      <span class="bc-player__play-icon">&#9654;</span>
+      <span class="bc-player__pause-icon" style="display:none;">&#10074;&#10074;</span>
+    </button>
+    <div class="bc-player__info">
+      <div class="bc-player__title">{{ include.title }}</div>
+      <div class="bc-player__time">
+        <span class="bc-player__current">00:00</span> / <span class="bc-player__duration">--:--</span>
+      </div>
+    </div>
+    <div class="bc-player__led"></div>
+  </div>
+  <div class="bc-player__waveform">
+    <div class="bc-player__wave-bars">
+      {% for i in (1..60) %}
+      <span></span>
+      {% endfor %}
+    </div>
+    <div class="bc-player__wave-played"></div>
+    <div class="bc-player__wave-click"></div>
+  </div>
+  <div class="bc-player__footer">
+    <span class="bc-player__tag">demo</span>
+    <span class="bc-player__trace"></span>
+    <span class="bc-player__label">ootes</span>
+  </div>
+  <audio preload="metadata" src="{{ include.src }}"></audio>
+</div>
+
+<style>
+  .bc-player {
+    background: #1a3c2a;
+    border: 2px solid #0d2618;
+    max-width: 500px;
+    font-family: 'Courier New', 'Lucida Console', monospace;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      inset 0 0 40px rgba(0, 0, 0, 0.3),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+    /* solder mask texture */
+    background-image:
+      radial-gradient(circle at 15% 85%, rgba(255,255,255,0.03) 1px, transparent 1px),
+      radial-gradient(circle at 85% 15%, rgba(255,255,255,0.03) 1px, transparent 1px),
+      radial-gradient(circle at 50% 50%, rgba(0,0,0,0.1) 0%, transparent 70%);
+  }
+
+  /* PCB drill holes */
+  .bc-player__pcb-dots {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(12,30,20,0.6) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+    background-position: 6px 6px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .bc-player__top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bc-player__play {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    background: #c0c0c0;
+    border: 2px solid #888;
+    border-radius: 2px;
+    color: #222;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: all 0.15s;
+    box-shadow:
+      1px 1px 0 #666,
+      inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+
+  .bc-player__play:hover {
+    background: #d4d4d4;
+    box-shadow:
+      1px 1px 0 #666,
+      inset 0 1px 0 rgba(255,255,255,0.6);
+  }
+
+  .bc-player__play:active {
+    background: #a0a0a0;
+    box-shadow:
+      inset 1px 1px 2px rgba(0,0,0,0.3);
+  }
+
+  .bc-player__play-icon {
+    margin-left: 2px;
+  }
+
+  /* LED indicator */
+  .bc-player__led {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #330000;
+    border: 1px solid #222;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .bc-player.is-playing .bc-player__led {
+    background: #ff3300;
+    box-shadow:
+      0 0 6px #ff3300,
+      0 0 12px rgba(255, 51, 0, 0.4),
+      inset 0 -1px 2px rgba(0,0,0,0.2);
+  }
+
+  .bc-player__info {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .bc-player__title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #c8dcc0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .bc-player__time {
+    font-size: 11px;
+    color: #7a9a6e;
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* waveform area */
+  .bc-player__waveform {
+    position: relative;
+    height: 54px;
+    background: #122a1c;
+    cursor: pointer;
+    overflow: hidden;
+    border-top: 1px solid #0d2618;
+    border-bottom: 1px solid #0d2618;
+    z-index: 1;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+  }
+
+  .bc-player__wave-bars {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 1.5px;
+    padding: 0 3px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .bc-player__wave-bars span {
+    flex: 1;
+    background: #3d7a4a;
+    min-width: 0;
+    border-radius: 0;
+    transition: background 0.05s;
+    box-shadow: 0 0 1px rgba(100, 200, 120, 0.2);
+  }
+
+  /* pseudo-random bar heights */
+  .bc-player__wave-bars span { height: 30%; }
+  .bc-player__wave-bars span:nth-child(3n+1) { height: 55%; }
+  .bc-player__wave-bars span:nth-child(5n+2) { height: 75%; }
+  .bc-player__wave-bars span:nth-child(7n+3) { height: 40%; }
+  .bc-player__wave-bars span:nth-child(11n+4) { height: 90%; }
+  .bc-player__wave-bars span:nth-child(13n+5) { height: 60%; }
+  .bc-player__wave-bars span:nth-child(4n) { height: 45%; }
+  .bc-player__wave-bars span:nth-child(9n+6) { height: 85%; }
+  .bc-player__wave-bars span:nth-child(6n+1) { height: 35%; }
+  .bc-player__wave-bars span:nth-child(10n+7) { height: 70%; }
+  .bc-player__wave-bars span:nth-child(15n) { height: 95%; }
+
+  /* played overlay */
+  .bc-player__wave-played {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    background: rgba(100, 220, 130, 0.2);
+    z-index: 3;
+    pointer-events: none;
+    transition: width 0.1s linear;
+  }
+
+  .bc-player__wave-click {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+  }
+
+  /* footer with PCB trace */
+  .bc-player__footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    font-size: 9px;
+    color: #5a7a50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bc-player__tag {
+    background: #0d2618;
+    color: #5a8a4a;
+    padding: 2px 8px;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border: 1px solid #2a5a3a;
+  }
+
+  .bc-player__trace {
+    flex: 1;
+    height: 2px;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        #2a5a3a 0px,
+        #2a5a3a 8px,
+        transparent 8px,
+        transparent 12px
+      );
+    opacity: 0.6;
+  }
+
+  .bc-player__label {
+    color: #5a7a50;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  /* played bars get a brighter copper/solder tint */
+  .bc-player__wave-bars span.is-played {
+    background: #6ad47a;
+    box-shadow: 0 0 3px rgba(106, 212, 122, 0.3);
+  }
+</style>
+
+<script>
+  (function() {
+    const wrapper = document.getElementById('player-{{ player_id }}');
+    const audio = wrapper.querySelector('audio');
+    const playBtn = wrapper.querySelector('.bc-player__play');
+    const playIcon = wrapper.querySelector('.bc-player__play-icon');
+    const pauseIcon = wrapper.querySelector('.bc-player__pause-icon');
+    const played = wrapper.querySelector('.bc-player__wave-played');
+    const waveClick = wrapper.querySelector('.bc-player__wave-click');
+    const bars = wrapper.querySelectorAll('.bc-player__wave-bars span');
+    const currentTime = wrapper.querySelector('.bc-player__current');
+    const duration = wrapper.querySelector('.bc-player__duration');
+
+    function fmt(s) {
+      var m = Math.floor(s / 60);
+      var sec = Math.floor(s % 60);
+      return String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
+    }
+
+    audio.addEventListener('loadedmetadata', function() {
+      duration.textContent = fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      var pct = (audio.currentTime / audio.duration) * 100;
+      played.style.width = pct + '%';
+      currentTime.textContent = fmt(audio.currentTime);
+
+      var barCount = bars.length;
+      var playedCount = Math.floor((pct / 100) * barCount);
+      for (var i = 0; i < barCount; i++) {
+        if (i < playedCount) {
+          bars[i].classList.add('is-played');
+        } else {
+          bars[i].classList.remove('is-played');
+        }
+      }
+    });
+
+    audio.addEventListener('ended', function() {
+      wrapper.classList.remove('is-playing');
+      playIcon.style.display = '';
+      pauseIcon.style.display = 'none';
+    });
+
+    playBtn.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play();
+        wrapper.classList.add('is-playing');
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = '';
+      } else {
+        audio.pause();
+        wrapper.classList.remove('is-playing');
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+      }
+    });
+
+    waveClick.addEventListener('click', function(e) {
+      var rect = waveClick.getBoundingClientRect();
+      var pct = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = pct * audio.duration;
+    });
+  })();
+</script>

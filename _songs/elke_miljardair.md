@@ -1,7 +1,6 @@
 ---
 layout: song
 title: "Elke Miljairdair Minder"
-genre: "UTOPOP"
 original_song: "Dido ~ Life for Rent"
 key: "C majeur"
 spotify_url: "https://open.spotify.com/artist/1tXuVg9XNIbVjaEQNW9xmL"

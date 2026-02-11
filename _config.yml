@@ -44,3 +44,4 @@ sass:
 
 exclude:
   - DEFINITION_OF_DONE.md
+  - CLAUDE.md
