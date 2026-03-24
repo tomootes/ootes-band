@@ -1,0 +1,28 @@
+.marquee {
+    overflow: hidden;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background-color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    position: absolute;
+    top: 0;
+    max-width: 100%;
+    display: none;
+    z-index: 50;
+
+    @media (min-width: 768px) {
+        display: flex;
+    }
+
+    span {
+        font-size: 2em;
+        white-space: nowrap;
+        text-transform: uppercase;
+    }
+
+    a {
+        color: #1d4ed8; // text-blue-700
+        text-decoration: underline;
+    }
+}

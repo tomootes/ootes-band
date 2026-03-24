@@ -3,16 +3,16 @@ layout: default
 title: Gigs
 ---
 
-<div class="container mx-auto max-w-4xl mt-5 px-2 md:px-0">
-  <h1 class="text-4xl mb-5 font-bold">Gigs</h1>
+<div class="page-content">
+  <h1 class="gigs-page__title">Gigs</h1>
   <div>
-    <table class="w-full">
-      <thead class="border-b-4 border-green-800 bg-white">
-        <tr class="pb-5">
-          <th class="text-left p-2 md:p-1">Datum</th>
-          <th class="text-left">Titel</th>
-          <th class="text-left">Locatie</th>
-          <th class="text-left">Tickets</th>
+    <table class="gigs-table">
+      <thead class="gigs-table__head">
+        <tr class="gigs-table__header-row">
+          <th class="gigs-table__header-cell">Datum</th>
+          <th class="gigs-table__header-cell">Titel</th>
+          <th class="gigs-table__header-cell">Locatie</th>
+          <th class="gigs-table__header-cell">Tickets</th>
         </tr>
       </thead>
       <tbody>
@@ -20,19 +20,19 @@ title: Gigs
         {% for gig in sorted_gigs %}
           {% assign gig_date = gig.date | date: '%s' %}
           {% assign current_date = 'now' | date: '%s' %}
-          <tr class="{% cycle 'odd', 'bg-white' %}">
-            <td class="p-2 md:p-1">
-              <span class="{% if gig_date < current_date %}line-through{% endif %}">{{ gig.date | date_to_string }}</span>
+          <tr class="{% cycle '', 'gigs-table__row--alt' %}">
+            <td class="gigs-table__cell">
+              <span class="{% if gig_date < current_date %}gigs-table__text--past{% endif %}">{{ gig.date | date_to_string }}</span>
             </td>
-            <td>
-              <span class="{% if gig_date < current_date %}line-through{% endif %}">{{ gig.title }}</span>
+            <td class="gigs-table__cell">
+              <span class="{% if gig_date < current_date %}gigs-table__text--past{% endif %}">{{ gig.title }}</span>
             </td>
-            <td>
-              <span class="{% if gig_date < current_date %}line-through{% endif %}">{{ gig.location }}</span>
+            <td class="gigs-table__cell">
+              <span class="{% if gig_date < current_date %}gigs-table__text--past{% endif %}">{{ gig.location }}</span>
             </td>
-            <td>
+            <td class="gigs-table__cell">
               <a
-                class="{% if gig_date < current_date %}line-through{% endif %} font-bold"
+                class="gigs-table__link {% if gig_date < current_date %}gigs-table__text--past{% endif %}"
                 href="{{ gig.ticket_link }}">TICKETS</a>
             </td>
           </tr>

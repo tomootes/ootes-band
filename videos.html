@@ -3,40 +3,23 @@ layout: default
 title: Video's
 ---
 
-<div class="container mx-auto  max-w-14xl">
+<div class="videos-page">
   {% assign sorted_photo_series = site.videos | sort: 'date' | reverse %}
   {% comment %} {% for video in sorted_photo_series %}
-            
-                    <div class="bg-green-200 p-2">
-                      <iframe class="
-                      ml-auto
-                      mr-auto
-                      w-full
-                      h-56
-                      md:w-1/2
 
-                      md:h-96
-                      rounded-lg" src="https://www.youtube.com/embed/1jeMkv2t8KM"></iframe>
-                    </div>
-            
-          {% endfor %} {% endcomment %}
+    <div class="video-section">
+      <iframe class="video-section__embed" src="https://www.youtube.com/embed/1jeMkv2t8KM"></iframe>
+    </div>
 
-  <div class="bg-green-200 p-2">
-    <iframe class="
-      ml-auto
-      mr-auto
-      w-full
-      h-56
-      md:w-1/2
+  {% endfor %} {% endcomment %}
 
-      md:h-96
-      rounded-lg" src="https://www.youtube.com/embed/1jeMkv2t8KM"></iframe>
+  <div class="video-section">
+    <iframe class="video-section__embed" src="https://www.youtube.com/embed/1jeMkv2t8KM"></iframe>
   </div>
 
-  <div class="bg-green-200 p-2 mt-8">
+  <div class="video-section video-section--spaced">
     <blockquote
-      class="instagram-media      ml-auto
-      mr-auto"
+      class="instagram-media"
       data-instgrm-captioned
       data-instgrm-permalink="https://www.instagram.com/reel/DCZUtvevyeu/?utm_source=ig_embed&amp;utm_campaign=loading"
       data-instgrm-version="14"
