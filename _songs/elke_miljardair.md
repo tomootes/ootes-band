@@ -16,12 +16,12 @@ De straten en de grachten en de boten
    Am                                  F
 Het lithium dat achteloos wordt getrasht
 	     Am                                 F
-Vapen is nog kankerder dan roken                     
+Het moet niet lekker zijn, voel mij verstoten
             Dm              G7*
 Dit land is gek, zo fucking gek
  
 [Chorus]
-          C  G    F
+          C  G                    F
 Als mijn gedachten, niet meer van mij zijn
       C     G        F      G
 En ik hoop, op niks, nieuws
@@ -39,7 +39,7 @@ Je zei het komt wel goed we maken uren
        Am                              F
 En het overzeese geld is nu goedkoop
               Am                          F
-Laat me even ditte voor je bouwen
+Laat me nog wat spullen voor je bouwen
             Dm              G7**
 We waren rijk, voor eventjes
  

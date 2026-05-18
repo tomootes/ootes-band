@@ -5,7 +5,6 @@ Jekyll static site for a band. Dutch-language content.
 ## Tech Stack
 
 - Jekyll (GitHub Pages) with Liquid templating
-- Tailwind CSS v4 (via browser script) for utility classes
 - Custom SCSS in `_scss/` compiled through `assets/css/styles.scss`
 - Prettier for formatting
 
