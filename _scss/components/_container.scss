@@ -1,0 +1,15 @@
+// Container - centers page content with a max width
+// BEM Methodology
+
+.container {
+    max-width: 56rem; // max-w-4xl
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    @media (min-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
