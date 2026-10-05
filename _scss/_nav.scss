@@ -16,20 +16,61 @@
     }
 
     &__bar {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         padding: 0.5rem;
         background-color: #4ade80; // bg-green-400
         color: white;
         border-radius: 0.5rem;
+    }
 
-        @media (min-width: 768px) {
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
+    // Hamburger button, only shown on mobile once JS has run
+    &__toggle {
+        display: none;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        background: none;
+        border: 2px solid #14532d; // green-900
+        border-radius: 0.375rem;
+        color: #14532d;
+        font: inherit;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    &__toggle-icon,
+    &__toggle-icon::before,
+    &__toggle-icon::after {
+        display: block;
+        width: 1.125rem;
+        height: 2px;
+        background-color: currentColor;
+    }
+
+    &__toggle-icon {
+        position: relative;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
         }
+
+        &::before {
+            top: -6px;
+        }
+
+        &::after {
+            top: 6px;
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
     }
 
     &__link {
@@ -39,15 +80,53 @@
         color: #14532d; // text-green-900
         font-weight: bold;
 
-        @media (min-width: 768px) {
-            margin-left: 0.5rem;
-            margin-right: 0.5rem;
-        }
-
         &--cta {
             background-color: yellow;
             border-radius: 0.375rem;
             padding: 0.25rem 0.5rem;
+        }
+    }
+
+    // Mobile: collapse links behind the toggle
+    @media (max-width: 767px) {
+        &--collapsible &__toggle {
+            display: flex;
+            margin-left: auto;
+        }
+
+        &--collapsible &__links {
+            display: none;
+        }
+
+        &--open &__links {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            margin-top: 0.5rem;
+        }
+
+        &--open &__link {
+            padding: 0.625rem 0.5rem;
+            border-top: 1px solid rgba(20, 83, 45, 0.2);
+        }
+
+        &--open &__link--cta {
+            justify-content: center;
+            margin-top: 0.5rem;
+            border-top: none;
+        }
+    }
+
+    @media (min-width: 768px) {
+        &__bar {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        &__link {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
         }
     }
 }

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="29 27 125 125">
+  <defs>
+    <radialGradient id="cap" cx="91.5" cy="89.5" r="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#C8C8C8"/>
+    </radialGradient>
+  </defs>
+  <circle cx="91.5" cy="89.5" r="62.5" fill="#FFF500"/>
+  <circle cx="91.5" cy="89.5" r="49" fill="url(#cap)"/>
+  <path d="M91.5 40.5v98M42.5 89.5h98" stroke="#6C6C6C" stroke-width="5"/>
+</svg>

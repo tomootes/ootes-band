@@ -1,17 +1,42 @@
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Hoofdmenu">
   <div class="site-nav__bar">
-    {% assign pages = site.pages | where_exp: 'page', 'page.title' %}
-    {% assign pages = pages | where_exp: 'page', 'page.exclude_from_nav != true' %}
-    {% assign pages_sorted = pages | sort: 'order' | reverse %}
-    {% for page in pages_sorted %}
-      {% if page.url == "/bandleden-gezocht.html" %}
-        <a href="{{page.url}}" class="site-nav__link site-nav__link--cta">
-          {{ page.title }}</a>
-      {% else %}
-        <a href="{{page.url}}" class="site-nav__link">
-          {{ page.title }}
-        </a>
-      {% endif %}
-    {% endfor %}
+    <button
+      class="site-nav__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav-links">
+      <span class="site-nav__toggle-icon" aria-hidden="true"></span>
+      Menu
+    </button>
+    <div class="site-nav__links" id="site-nav-links">
+      {% assign pages = site.pages | where_exp: 'page', 'page.title' %}
+      {% assign pages = pages | where_exp: 'page', 'page.exclude_from_nav != true' %}
+      {% assign pages_sorted = pages | sort: 'order' | reverse %}
+      {% for page in pages_sorted %}
+        {% if page.url == "/bandleden-gezocht.html" %}
+          <a href="{{page.url}}" class="site-nav__link site-nav__link--cta">
+            {{ page.title }}</a>
+        {% else %}
+          <a href="{{page.url}}" class="site-nav__link">
+            {{ page.title }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </nav>
+
+<script>
+  (function () {
+    var nav = document.querySelector('.site-nav');
+    var toggle = nav.querySelector('.site-nav__toggle');
+
+    // Collapse the menu only when JS runs, so links stay reachable without it
+    nav.classList.add('site-nav--collapsible');
+
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('site-nav--open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  })();
+</script>

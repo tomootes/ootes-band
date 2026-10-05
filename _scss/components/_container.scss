@@ -12,4 +12,15 @@
         padding-left: 0;
         padding-right: 0;
     }
+
+    // Keep media from overflowing the container
+    img,
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    iframe {
+        max-width: 100%;
+    }
 }
