@@ -16,10 +16,12 @@
     }
 
     &__bar {
-        padding: 0.5rem;
-        background-color: #4ade80; // bg-green-400
-        color: white;
-        border-radius: 0.5rem;
+        @media (min-width: 768px) {
+            padding: 0.5rem;
+            background-color: #4ade80; // bg-green-400
+            color: white;
+            border-radius: 0.5rem;
+        }
     }
 
     // Hamburger button, only shown on mobile once JS has run
@@ -27,8 +29,8 @@
         display: none;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.25rem 0.5rem;
-        background: none;
+        padding: 0.5rem 0.75rem;
+        background: white;
         border: 2px solid #14532d; // green-900
         border-radius: 0.375rem;
         color: #14532d;

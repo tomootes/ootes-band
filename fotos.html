@@ -3,7 +3,7 @@ layout: default
 title: Foto's
 ---
 
-<div class="page-content">
+<div class="container container--xl">
   {% assign sorted_photo_series = site.photo_series | sort: 'date' | reverse %}
   {% for photo_serie in sorted_photo_series %}
 
@@ -15,13 +15,19 @@ title: Foto's
           {{ photo_serie.photographer }}
         </span>
       </div>
-      <a class="photo-collage-grid__photo photo-collage-grid__photo--first" style="grid-column: span {{ photo_serie.photos[0].cols }}" href="https://ucarecdn.com/{{ photo_serie.photos[0].uuid }}/">
-        <img src="https://ucarecdn.com/{{ photo_serie.photos[0].uuid }}/-/preview/" />
+      <a
+        class="photo-collage-grid__photo photo-collage-grid__photo--first"
+        style="grid-column: span {{ photo_serie.photos[0].cols }}"
+        href="{{ site.cdn_url }}/original/{{ photo_serie.photos[0].file }}">
+        <img src="{{ site.cdn_url }}/web/{{ photo_serie.photos[0].file }}" />
       </a>
       {% assign photos_without_first = photo_serie.photos | slice: 1, 99 %}
       {% for photo in photos_without_first %}
-        <a class="photo-collage-grid__photo" style="grid-column: span {{ photo.cols }}; grid-row: span {{ photo.rows }}" href="https://ucarecdn.com/{{ photo.uuid }}/">
-          <img src="https://ucarecdn.com/{{ photo.uuid }}/-/preview/" />
+        <a
+          class="photo-collage-grid__photo"
+          style="grid-column: span {{ photo.cols }}; grid-row: span {{ photo.rows }}"
+          href="{{ site.cdn_url }}/original/{{ photo.file }}">
+          <img src="{{ site.cdn_url }}/web/{{ photo.file }}" />
         </a>
       {% endfor %}
     </div>

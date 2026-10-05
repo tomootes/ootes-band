@@ -8,6 +8,10 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 
+    &--xl{
+        max-width: 72rem;
+    }
+
     @media (min-width: 768px) {
         padding-left: 0;
         padding-right: 0;
